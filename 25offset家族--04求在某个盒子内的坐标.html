@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>25offset家族--04求在某个盒子内的坐标</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		.demo{
+			width: 400px;
+			height: 400px;
+			background-color: pink;
+			margin: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="demo"></div>
+
+	<script>
+		var div = document.getElementsByTagName("div")[0];
+		div.onmousemove = function(event){
+			var event = event || window.event;
+			var x = event.clientX - this.offsetLeft;
+			var y = event.clientY - this.offsetTop;
+			this.innerHTML = x + "px" +","+ y + "px";
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>22定时器--缓动运动</title>
+	<style>
+		.box{
+			position: absolute;
+			top: 100px;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var btn = document.getElementById("btn");
+			var box = document.getElementById("box");
+			var leader = 0;
+			var target = 500;
+			var timer = null;
+
+			btn.onclick = function(){
+				timer = setInterval(function(){
+					leader = leader + (target - leader) / 20;
+					box.style.left = leader + "px";
+				},10);				
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<button id="btn">缓动运动</button>
+	<div class="box" id="box"></div>	
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>25offset家族--03点击跟随鼠标走</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		#image{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/img.jpg" alt="" id="image">
+
+	<script>
+		var image = document.getElementById("image");
+		document.onclick = function(event){
+			var event = event || window.event;	//兼容各个浏览器
+			targetX = event.clientX - image.offsetWidth / 2;//让其居中在鼠标中间
+			targetY = event.clientY - image.offsetHeight / 2;//让其居中在鼠标中间
+		}
+
+		//缓动运动
+		var leaderX = 0, 
+		    leaderY = 0,
+		    targetX = 0,
+		    targetY = 0;
+		setInterval(function(){
+			leaderX = leaderX + (targetX - leaderX) / 10;
+			leaderY = leaderY + (targetY - leaderY) / 10;
+			image.style.left = leaderX + "px";
+			image.style.top = leaderY + "px";
+		},10);		
+	</script>
+</body>
+</html>

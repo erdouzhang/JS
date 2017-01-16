@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>22定时器--5秒钟返回首页</title>
+	<script>
+		window.onload = function(){
+			var demo = document.getElementById("demo");
+			var count = 5;
+			setTimeout(goIndexPage, 1000);	//1秒之后执行这个函数
+			function goIndexPage(){
+				//如果count<0 就跳转页面
+				count--;
+				demo.innerHTML = "<a href='http://www.baidu.com'>本页面将在"+ count +"秒钟后跳转到百度首页</a>";
+				if(count <= 0){
+					window.location.href = "http://www.baidu.com";
+				}else{
+					setTimeout(goIndexPage, 1000);	//递归
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+</html>

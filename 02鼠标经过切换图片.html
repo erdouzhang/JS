@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标经过切换图片</title>
+</head>
+<body>
+	<img id="img" src="./images/jd1.png" alt="">
+	<script>
+		var img = document.getElementById("img");
+		img.onmouseover = function(){
+			img.src = "./images/jd2.png";
+		}
+		img.onmouseout = function(){
+			img.src = "./images/jd1.png";
+		}
+	</script>
+	
+</body>
+</html>

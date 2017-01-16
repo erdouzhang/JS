@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>18封装class类优化</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			margin: 10px auto;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			//封装自己的类名
+			function getClass(classname){
+				//判断主流浏览器
+				if(document.getElementsByClassName){
+					return document.getElementsByClassName(classname);
+				}
+				//IE6\7\8不支持的浏览器
+				var arr = [];	//用于返回数组
+				var dom = document.getElementsByTagName("*");	//先取出所有的盒子
+				for(var i = 0;i<dom.length;i++){	//遍历所有的dom盒子
+					var txtarr = dom[i].className.split(" ");	//分割类名 转换为数组
+					for(var j = 0;j<txtarr.length;j++){	//遍历通过类名分割的的数组
+						if(txtarr[j] == classname){
+							arr.push(dom[i]);	//我们要的是div
+						}
+					}
+				}
+				return arr;
+			}
+			console.log(getClass("test").length);
+			var test = getClass("test");
+			for(var i = 0;i<test.length;i++){
+				test[i].style.backgroundColor = "yellow";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div></div>
+	<div class="test"></div>
+	<div class="demo"></div>
+	<div></div>
+	<div></div>
+	<div class="demo test"></div>
+	<div></div>
+	<div></div>
+	<div class="demo"></div>
+	<div></div>
+</body>
+</html>

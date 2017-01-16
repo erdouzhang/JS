@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>23字符串--操作字符--保留小数位数</title>
+	<script>
+		window.onload = function(){
+			var PI = 3.14159265357;	//常量大写
+			var str = PI + "";	//数字不能进行字符操作,所以要先转换
+			var index = str.indexOf(".");//返回小数点位置
+			//方法一
+			console.log(str.substr(0,index+3));//第0个位置取到小数点位置开始+3位数即3.14
+			console.log(str.substr(0,str.indexOf(".")+3));	//合并在一起写
+			//方法二
+			console.log(parseInt(PI*100) / 100);	//3.14
+			//方法三
+			console.log(PI.toFixed(2));	//3.14
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

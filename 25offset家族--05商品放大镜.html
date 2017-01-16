@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>25offset家族--05商品放大镜</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		.box{
+			width: 350px;
+			height: 350px;
+			margin: 100px;
+			border: 1px solid #ccc;
+			position: relative;
+		}
+		.big{
+			width: 450px;
+			height: 450px;
+			position: absolute;
+			top: 0;
+			left: 360px;
+			border: 1px solid #ccc;
+			overflow: hidden;
+		}
+		.mask{
+			width: 100px;
+			height: 100px;
+			background-color: rgba(255,255,0,0.3);/*黄色半透明*/
+			position: absolute;/*相对于小盒子small定位*/
+			top: 0;
+			left: 0;
+			cursor: move;/*鼠标放上移动*/
+		}
+		.small{
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<!-- 小盒子放图片 -->
+		<div class="small">
+			<img src="images/001.jpg" alt="">
+			<div class="mask"></div>	<!-- 遮罩 -->
+		</div>
+		<!-- 大盒子显示图片放大内容 -->
+		<div class="big">
+			<img src="images/0001.jpg" alt="">
+		</div>
+	</div>
+
+	<script>
+
+	</script>
+</body>
+</html>

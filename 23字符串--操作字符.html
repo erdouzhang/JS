@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>23字符串--操作字符</title>
+	<script>
+		window.onload = function(){
+			var div1 = document.getElementById("div1").innerHTML;
+			var div2 = document.getElementById("div2").innerHTML;
+			function btnOnclick(id,txt){
+				document.getElementById(id).onclick = function(){
+					this.nextSibling.innerHTML = txt;
+				}
+			}
+			
+			btnOnclick("btn1",div1.concat(div2));//连接两个字符串
+			btnOnclick("btn2",div1.slice(3));//索引0开始div1从第3个位置开始截取后面所有字符
+			btnOnclick("btn3",div1.slice(3,6));//从第3个位置开始截取到第6个位置
+			btnOnclick("btn4",div1.slice(-1));//从右边开始截取 ！
+			btnOnclick("btn5",div1.substr(3));//从左边
+			btnOnclick("btn6",div1.substr(3,6));//0开始数 左边第三个到第六个但不包括6
+			btnOnclick("btn7",div1.substr(div1.length-1,1));//取最后一个索引号比长度少1所以要减1
+		}
+	</script>
+</head>
+<body>
+<div id="div1">my name is andy!</div>
+<div id="div2">what's your name?</div>	
+<button id="btn1">concat()</button><span></span><br>	<!-- button和span之间不能有空格 -->
+
+<button id="btn2">slice(3)</button><span></span><br>	
+<button id="btn3">slice(3,6)</button><span></span><br>	
+<button id="btn4">slice(-1)</button><span></span><br>	
+
+<button id="btn5">substr(3)</button><span></span><br>	
+<button id="btn6">substr(3,6)</button><span></span><br>	
+<button id="btn7">substr(取最后一个字符)</button><span></span><br>	
+</body>
+</html>

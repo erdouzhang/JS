@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10仿淘宝搜索框</title>
+	<style>
+		.search{
+			width: 300px;
+			height: 30px;
+			margin: 100px auto;
+			position: relative;
+		}
+		.search input{
+			width: 200px;
+			height: 25px;
+			line-height: 25px;	/*IE8文字会往上偏 解决兼容问题加行高*/
+			outline-style: none;	/*去掉蓝色外边框*/
+			padding-left: 15px;
+		}
+		.search label{
+			font-size: 12px;
+			color: #ccc;
+			position: absolute;
+			left: 20px;
+			top: 8px;
+			cursor: text;	/*鼠标放框中默认文字显示光标*/
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			function $(id){return document.getElementById(id); }
+			// oninput 大部分浏览器支持 检测用户表单输入内容
+			// onpropertychange IE6、7、8支持 检测用户表单输入内容
+			$("txt").focus();	//自动获得焦点
+			$("txt").oninput = $("txt").onpropertychange = function(){
+				if(this.value == ""){
+					$("message").style.display = "block";
+				}else{
+					$("message").style.display = "none";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="search">
+		<input type="text" id="txt">
+		<!-- 想让鼠标放在谁身上显示光标 for就写谁的id值 -->
+		<label for="txt" id="message">必败的国际大牌</label>		
+
+	</div>
+</body>
+</html>

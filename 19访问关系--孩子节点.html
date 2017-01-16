@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>19访问关系--孩子节点</title>
+	<script>
+		window.onload = function(){
+			var ul = document.getElementById("ul");
+			var childrens = ul.childNodes;	//选择全部的孩子
+			for(var i = 0;i<childrens.length;i++){
+				if(childrens[i].nodeType == 1){	//nodeType == 1 是获取元素节点，如果不获取会报错
+					childrens[i].style.backgroundColor = "red";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="ul">
+		<li>11 22 33</li>
+		<li>11 22 33</li>
+		<li>11 22 33</li>
+	</ul>
+</body>
+</html>

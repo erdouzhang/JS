@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>23字符串--检测字符串长度</title>
+</head>
+<body>
+	<script>
+		var txt = "what are you 弄啥嘞";
+		console.log(txt.length);
+		function getStringLength(str){
+			var len = 0;//存储总长度
+			var c = 0;	//存储每一个编码
+			for(var i = 0;i<str.length;i++){
+				c = str.charCodeAt(i);	//获得每一个字符编码
+				//判断是不是字符 0~127
+				if(c>= 0 && c<= 127){
+					len++;
+				}else{
+					len +=2;
+				}				
+			}
+			return len;
+		}
+		console.log(getStringLength(txt));
+	</script>
+</body>
+</html>

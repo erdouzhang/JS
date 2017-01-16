@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>26scroll家族--01窗口滚动条</title>
+	<style>
+		body{
+			height: 33000px;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		window.onscroll = function(){
+			//兼容所有浏览器
+			var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.document.body.scrollTop || 0;
+			console.log(11);
+			document.title = scrollTop;
+		}
+	</script>
+</body>
+</html>

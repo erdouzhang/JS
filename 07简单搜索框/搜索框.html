@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>搜索框</title>
+	<style>
+		*{margin: 0; padding: 0;}
+		input,button{border: 0 none;}
+		.search{
+			width: 281px;
+			height: 37px;
+			border: 1px solid #e7e5e1;
+			margin: 100px auto;
+			position: relative;
+			border-radius: 3px;
+		}
+		.search input{
+			width: 220px;
+			height: 35px;
+			line-height: 35px;
+			outline-style: none;	/*input框去掉外边蓝色边框*/
+			padding-left: 17px;		/* 文字距离左边框17px  加padding-left时别忘了width减去17px;*/
+			color: #666666;
+		}
+		.search button{
+			width: 57px;
+			height: 37px;
+			background: url(images/right.png) no-repeat;
+			float: left;
+			cursor: pointer;
+			display: inline;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+	</style>	
+</head>
+<body>
+	<div class="search">
+		<input type="text" value="请输入关键词搜索">
+		<button></button>
+	</div>
+</body>
+</html>

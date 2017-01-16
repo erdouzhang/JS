@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>32动画--02基本原理函数--封装基本动画</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn200">200</button>
+	<button id="btn400">400</button>
+	<div id="box"></div>
+</body>
+</html>
+<script>
+	var btn200 = document.getElementById("btn200");
+	var btn400 = document.getElementById("btn400");
+	var box = document.getElementById("box");
+	var timer = null;
+	btn200.onclick = function(){
+		animate(box,200);
+	}
+	btn400.onclick = function(){
+		animate(box,400);
+	}
+	//封装函数
+	function animate(obj,target){//谁动 走多少
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function(){
+			//计算步长 动画原理，
+			var step = (target - obj.offsetLeft) / 10;//步长
+			step = step > 0 ? Math.ceil(step) : Math.floor(step);//取整步长
+			//动画原理 盒子本身位置+ 步长
+			box.style.left = box.offsetLeft + step + "px";
+			if(box.offsetLeft == target){
+				clearInterval(obj.timer);
+			}
+		},30);
+	}
+</script>

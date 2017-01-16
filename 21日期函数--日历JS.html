@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>21日期函数--日历</title>
+	<style>
+		.box{
+			width: 200px;
+			height: 180px;
+			margin: 100px auto;
+			background-color: pink;
+		}
+		.box p{
+			text-align: center;
+			line-height: 60px;
+			font-style: 12px;
+		}
+		.box span{
+			display: block;
+			width: 75px;
+			height: 75px;
+			background-color: #ccc;
+			font-size: 50px;
+			text-align: center;
+			line-height: 75px;
+			margin: 0 auto;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var box = document.getElementById("box");
+			var boys = box.children;
+
+			//日期函数
+			var arr = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"]
+			var date = new Date();
+			boys[0].innerHTML= date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日"+"  "+arr[date.getDay()];
+			boys[1].innerHTML = date.getDate();
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id="box">
+		<p></p>
+		<span></span>
+	</div>
+</body>
+</html>

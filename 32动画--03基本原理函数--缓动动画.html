@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>32动画--02基本原理函数--缓动动画</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">开始</button>
+	<div id="box"></div>	
+</body>
+</html>
+<script>
+	var target = 400;
+	var timer = null;
+	function $(id){return document.getElementById(id);}
+	$("btn").onclick = function(){
+		timer = setInterval(function(){
+			var step = (target - $("box").offsetLeft)/10;//步长 =（目标位置-盒子位置）/10
+			step = step > 0 ? Math.ceil(step) : Math.floor(step);
+			$("box").style.left = $("box").offsetLeft + step +"px";
+			if($("box").offsetLeft == target){
+				clearInterval(timer);
+			}
+		},100);
+	}
+</script>

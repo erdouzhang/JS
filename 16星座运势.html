@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16星座运势</title>
+	<style>
+		.box{
+			width: 350px;
+			height: 250px;
+			border: 1px solid #ccc;
+			margin: 100px auto;
+		}
+		.dt{
+			padding-left: 10px;
+			line-height: 35px;
+			font-weight: 700;	/*字体加粗*/
+			color: blue;
+		}
+		.dd{
+			padding: 16px;
+		}
+		.dd_t{
+			overflow: hidden;	/*清除浮动*/
+		}
+		.dd .icon{
+			width: 50px;
+			height: 50px;
+			float: left;
+			background: url(images/astroIcon.png) 0 0 no-repeat;
+			padding-right: 10px;
+		}
+		.dd .yunshi{
+			width: 80px;
+			height: 13px;
+			display: inline-block;
+			background: url(images/yunshi.png) no-repeat;
+			position: relative;
+		}
+		.star{
+			width: 80px;
+			height: 13px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: url(images/yunshi.png) no-repeat left bottom;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			function $(id){return document.getElementById(id); }	//id函数
+			var arr = [10,9,6,9,7];	//存放运势
+			var txtArr = ["白羊座内容","金牛座内容","双子座内容","巨蟹座内容"];			
+			var sele = document.getElementById("sele");
+			sele.onchange = function(){
+				//this.value是索引号 乘以50的关系 精灵图片都是负数
+				$("ico").style.backgroundPosition = "0 "+(-50*this.value)+"px";//0 0 ,0 -50px
+				$("stAr").style.width = arr[this.value] *8 + "px";//盒子共80像素，分为10分，每份是8像素，金牛座是9分所以是9*8
+				$("content").innerHTML = txtArr[this.value];				
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<div class="dt">星座运势</div>		
+		<div class="dd">
+			<div class="dd_t">
+				<div class="icon" id="ico"></div>
+				<div class="right">
+					<select name="" id="sele">
+						<option value="0">白羊座（03.21-04.19）</option>
+						<option value="1">金牛座（04.20-05.20）</option>
+						<option value="2">双子座（05.21-06.21）</option>
+						<option value="3">巨蟹座（06.22-07.22）</option>
+					</select>
+					<div>
+						今日运势：
+						<span class="yunshi">	<!-- 父亲 灰色五角星盒子 -->
+							<span class="star" id="stAr"></span><!--孩子  黄色五角星盒子 -->
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="dd_d" id="content">你可能会有出行的想法，有些人会有迁移，出差或者旅游方面的决定。备考的射手最近也可能会有某个...[详细]</div>			
+		</div>
+	</div>
+	
+</body>
+</html>

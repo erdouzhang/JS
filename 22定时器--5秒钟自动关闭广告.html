@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>22定时器--5秒钟自动关闭广告</title>
+	<style>
+		img{
+			position: absolute;
+			top: 0;
+		}
+		#left{
+			left: 0;
+		}
+		#right{
+			right: 0;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			function $(id){return document.getElementById(id);}
+			function hide(id){	//隐藏函数
+				$(id).style.display = "none";
+			}
+			function show(id){	//显示函数
+				$(id).style.display = "block";
+			}
+			setTimeout(closeAd,5000);
+			function closeAd(){
+				hide("left");
+				hide("right");
+			}
+		}
+	</script>
+</head>
+<body>
+	<img src="images/1.gif" alt="" id="left">
+	<img src="images/2.gif" alt="" id="right">
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+	<p>天王盖地虎，小鸡炖蘑菇</p>
+</body>
+</html>

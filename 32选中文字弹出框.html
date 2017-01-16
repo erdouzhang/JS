@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>32选中文字弹出框</title>
+	<style>
+		div{
+			width: 400px;
+			margin: 50px;
+		}
+		#demo{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<span id="demo"></span>
+	<div id="test">复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字复制的文字</div>
+	<div id="another">不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字不复制的文字</div>
+</body>
+</html>
+<script>
+	function $(id){return document.getElementById(id);}
+	$("test").onmouseup = function(event){
+		var event  = event || window.event;
+		var x = event.clientX;//鼠标抬起时x轴坐标
+		var y = event.clientY;//鼠标抬起时y轴坐标
+		var txt;//用于存储文字的变量
+		if(window.getSelection){//获取用户选择的内容
+			txt = window.getSelection().toString();//标准浏览器 转转成字符串
+		}else{
+			txt = document.selection.createRange().text;//IE678
+		}
+		if(txt){//判断用户是否选中文字 如果选中文字就调用函数 否则不调用
+			showBox(x,y,txt);//调用函数
+		}		
+	}
+	document.onmousedown = function(event){//点击空白处隐藏
+		var event = event || window.event;
+		var targetId = event.target ? event.target.id : event.srcElement.id;//兼容性获取点击的对象的id名字
+		if(targetId != "demo"){
+			$("demo").style.display = "none";
+		}
+	}
+	function showBox(mousex,mousey,contentTxt){
+		setTimeout(function(){//设置定时器，复制之后延时1秒显示,避免IE中显示过多内容
+			$("demo").style.display = "block";
+			$("demo").style.left = mousex + "px";
+			$("demo").style.top = mousey + "px";
+			$("demo").innerHTML = contentTxt;
+		},1000);
+	}
+</script>

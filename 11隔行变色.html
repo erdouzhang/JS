@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11隔行变色</title>
+	<style>
+		.box{
+			width: 300px;
+		}
+		li{
+			line-height: 30px;
+		}
+		li span{
+			margin: 5px;
+		}
+		.current{
+			background-color: #ccc!important;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var lis = document.getElementsByTagName("li");
+			for(var i = 0; i < lis.length; i++){
+				if(i % 2 == 0){	//只有偶数被2整除
+					lis[i].style.backgroundColor = "#eee";
+				}
+				//鼠标经过底色颜色变亮
+				lis[i].onmouseover = function(){
+					this.className = "current";
+				}
+				lis[i].onmouseout = function(){
+					this.className = "";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li>
+				<span>上证指数:</span><span>3641</span><span>10-5</span><span>0.16%</span>
+			</li>
+			<li>
+				<span>上证指数:</span><span>3641</span><span>10-5</span><span>0.16%</span>
+			</li>
+			<li>
+				<span>上证指数:</span><span>3641</span><span>10-5</span><span>0.16%</span>
+			</li>
+			<li>
+				<span>上证指数:</span><span>3641</span><span>10-5</span><span>0.16%</span>
+			</li>
+			<li>
+				<span>上证指数:</span><span>3641</span><span>10-5</span><span>0.16%</span>
+			</li>
+			<li>
+				<span>上证指数:</span><span>3641</span><span>10-5</span><span>0.16%</span>
+			</li>
+			<li>
+				<span>上证指数:</span><span>3641</span><span>10-5</span><span>0.16%</span>
+			</li>
+			<li>
+				<span>上证指数:</span><span>3641</span><span>10-5</span><span>0.16%</span>
+			</li>
+			<li>
+				<span>上证指数:</span><span>3641</span><span>10-5</span><span>0.16%</span>
+			</li>
+
+		</ul>
+	</div>
+</body>
+</html>

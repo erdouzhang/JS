@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14排他思想原理--获取索引号</title>
+	<style>
+		.cursor{
+			background-color: pink;;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var btns = document.getElementsByTagName("button");
+
+			for(var i = 0; i<btns.length;i++){
+				btns[i].index = i;	//给每个button定义一个index属性
+				btns[i].onclick = function(){
+					//点击完毕之后，首先清除所有人用for
+					alert(this.index) //一点击之后弹出点击的那个索引号;
+					
+					for(var i = 0;i<btns.length;i++){
+						btns[i].className = "";
+					}
+					//然后剩下自己，而且是点击的那个
+					this.className = "cursor";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<button>排他思想</button>
+	<button>排他思想</button>
+	<button>排他思想</button>
+	<button>排他思想</button>
+	<button>排他思想</button>
+	<button>排他思想</button>
+</body>
+</html>

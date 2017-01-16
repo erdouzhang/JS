@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>19访问关系--兄弟节点</title>
+	<script>
+		window.onload = function(){
+			var one = document.getElementById("one");
+			// 先写nextElementSibling 主流浏览器支持 nextSibiling只有IE678支持
+			var div = one.nextElementSibling || one.nextSibling;//解决兼容问题用 或 “||”
+			div.style.backgroundColor = "red";
+		}
+	</script>
+</head>
+<body>
+	<ul>
+		<li>111 2222 3333</li>
+		<li id="one">111 2222 3333</li>
+		<li>111 2222 3333</li>
+		<li>111 2222 3333</li>
+		<li>111 2222 3333</li>
+		<li>111 2222 3333</li>
+		<li>111 2222 3333</li>
+		<li>111 2222 3333</li>
+	</ul>
+	
+</body>
+</html>

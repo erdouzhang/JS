@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>34得到CSS样式02--封装返回当前样式属性的函数</title>
+	<style>
+		#demo{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+			left: 10px;
+			top: 20px;
+			z-index: 2;
+			opacity: 0.4;
+		}
+	</style>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+</html>
+<script>
+	var demo = document.getElementById("demo");
+	function getStyle(obj,attr){ //谁的  哪个属性
+		if(obj.currentStyle){//兼容IE
+			return obj.currentStyle[attr];
+		}else{
+			return window.getComputedStyle(obj,null)[attr];//兼容W3C 标准浏览器
+		}
+	}
+	console.log(getStyle(demo,"height"));//如果width不加引号就是变量，但没有变量就会报错 我们要的是属性
+</script>

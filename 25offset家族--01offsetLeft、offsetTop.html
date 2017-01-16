@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>25offset家族--offsetLeft、offsetTop</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		#father{
+			width: 500px;
+			height: 500px;
+			background-color: pink;
+			margin: 100px;
+		}
+		#son{
+			width: 200px;
+			height: 200px;
+			background-color: yellow;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var father = document.getElementById("father");
+			var son = document.getElementById("son");
+			console.log(son.offsetLeft);	//100
+		}
+	</script>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+</html>

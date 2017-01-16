@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>25offset家族--06水平条拖动</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		.scroll{
+			width: 400px;
+			height: 8px;
+			background-color: #ccc;
+			margin: 100px;
+			position: relative;
+		}
+		.bar{
+			width: 10px;
+			height: 25px;
+			background-color: #369;
+			position: absolute;
+			left: 0;
+			top: -7px;
+			cursor: pointer;
+		}
+		.mask{
+			width: 0;
+			height: 100%;
+			background-color: #369;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="scroll" id="scrollBar">
+		<div class="bar"></div>
+		<div class="mask"></div><!-- 拖动之后变色覆盖在没有颜色的滚动条上 -->
+	</div>
+	<div id="demo"></div>
+
+	<script>
+		var scrollBar = document.getElementById("scrollBar");
+		var bar = scrollBar.children[0];
+		var mask = scrollBar.children[1];
+		var demo = document.getElementById("demo");
+		bar.onmousedown = function(event){
+		    var event = event || window.event;//兼容		    
+			//当我们按下鼠标时，计算出当前鼠标的值
+		    var leftVal = event.clientX - this.offsetLeft;	//计算bar距离大盒子的距离
+			//拖动移动写在down里
+			var that = this;
+			document.onmousemove = function(){
+				var event = event || window.event;
+				that.style.left = event.clientX - leftVal + "px";
+				//防止bar拖出横线
+				var val = parseInt(that.style.left);//that.style.left得到的是5px，得转换成数字
+				if(val < 0 ){	
+					that.style.left = 0;
+				}else if(val > 390){
+					that.style.left = "390px";	//scroll的宽400px-bar的宽10px
+				}
+				//拖动之后变颜色
+				mask.style.width = that.style.left;//遮罩盒子的宽度
+				//计算百分比
+				demo.innerHTML = "已经走了:"+parseInt(parseInt(that.style.left)/390*100)+"%";//当前位置除以总长度乘100
+				//防止选择拖动 清除选中内容
+				window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;	//弹起鼠标不做任何操作
+			}
+		}
+	</script>
+</body>
+</html>

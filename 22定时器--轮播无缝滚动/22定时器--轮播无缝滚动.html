@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>22定时器--轮播无缝滚动</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		ul{list-style: none;}
+		img{vertical-align: top;} /*去掉上下两张图片之间的默认间隙距离*/
+		.box{
+			width: 600px;
+			height: 200px;
+			margin: 100px auto;
+			background-color: pink;
+			overflow: hidden;
+			position: relative;
+		}
+		.box ul li{
+			float: left;
+		}
+		.box ul{
+			width: 400%;	/*四张图片就是百分之四百*/
+			position: absolute;/*大盒子做动画，就给大盒子定位*/
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="scroll">
+		<ul>
+			<li><img src="images/01.jpg" alt=""></li>
+			<li><img src="images/02.jpg" alt=""></li>
+			<li><img src="images/03.jpg" alt=""></li>
+			<li><img src="images/04.jpg" alt=""></li>
+			<li><img src="images/01.jpg" alt=""></li>
+			<li><img src="images/02.jpg" alt=""></li>			
+		</ul>
+	</div>
+</body>
+</html>

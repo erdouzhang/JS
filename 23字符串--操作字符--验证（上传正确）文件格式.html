@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>23字符串--操作字符--验证（上传正确）文件格式</title>
+	<script>
+		window.onload = function(){
+			var file = document.getElementById("File");
+			file.onchange = function(){
+				var path = this.value;	//得到现在的文件路径
+				var suxxif = path.substr(path.lastIndexOf(".")).toUpperCase();	//得到后缀名转成大写字母
+				if(suxxif == ".JPG" || suxxif == ".PNG"){
+					this.nextSibling.innerHTML = "格式正确";
+				}else{
+					this.nextSibling.innerHTML = "格式不正确";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="file" id="File"><span></span>
+</body>
+</html>

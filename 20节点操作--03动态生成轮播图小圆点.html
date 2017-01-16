@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20节点操作--动态生成轮播图小圆点</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		ul ol{list-style: none;}
+		.box{
+			width: 730px;
+			height: 454px;
+			margin: 100px auto;
+			overflow: hidden;
+			position: relative;
+		}
+		.circle{
+			position: absolute;
+			left: 50%;
+			margin-left: -50px;	/*图片底部数字居中显示*/
+			bottom: 10px;
+		}
+		.circle span{
+			float: left;
+			width: 18px;
+			height: 18px;
+			border-radius: 50%;
+			background-color: pink;
+			text-align: center;	/*数字在圆圈中水平居中*/
+			line-height: 18px;	/*数字在圆圈中垂直居中*/
+			margin-right: 10px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="slider">
+			<ul>
+				<li><img src="images/11.jpg" alt=""></li>
+				<li><img src="images/22.jpg" alt=""></li>
+				<li><img src="images/33.jpg" alt=""></li>
+				<li><img src="images/44.jpg" alt=""></li>
+				<li><img src="images/55.jpg" alt=""></li>
+				<li><img src="images/66.jpg" alt=""></li>
+			</ul>		
+		</div>
+		<div class="circle">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+		</div>
+	</div>	
+</body>
+</html>

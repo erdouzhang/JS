@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>37闭包原理</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	function fn(){
+		var num = 10;//闭包就是让fn()函数以外的函数去调用此变量 就可以创建闭包
+		function infn(){
+			var key = 10;
+			console.log(num);//外部的变量可以被内部函数使用
+		}
+		console.log(key);//这样不可以 内部函数变量不可以被外部函数使用
+		return infn;//返回的是函数体
+	}
+	console.log(num); //是错误的，因为num是局部变量
+	var demo = fn();  //fn() 返回的是  function infn(){var key = 10; console.log(num);}
+					  //相当于var demo = function infn(){var key = 10; console.log(num);}
+	demo();	//10 就是执行一次fn()函数
+</script>

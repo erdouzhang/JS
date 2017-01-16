@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>22定时器--时钟</title>
+	<style>
+		.clock{
+			width: 600px;
+			height: 600px;
+			margin: 50px auto;
+			background: url(images/clock.jpg);
+			position: relative;
+		}
+		.clock div{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.hour{
+			background: url(images/hour.png) no-repeat center center;	/*时钟居中显示*/
+		}
+		.min{
+			background: url(images/minute.png) no-repeat center center;	/*时钟居中显示*/
+		}
+		.sec{
+			background: url(images/second.png) no-repeat center center;	/*时钟居中显示*/
+		}
+	</style>	
+</head>
+<body>
+	<div class="clock">
+		<div class="hour"></div>
+		<div class="min"></div>
+		<div class="sec"></div>
+	</div>
+</body>
+</html>

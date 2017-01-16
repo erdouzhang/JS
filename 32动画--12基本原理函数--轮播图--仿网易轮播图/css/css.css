@@ -1,0 +1,62 @@
+*{margin: 0;padding: 0;}
+img{vertical-align: top;}/*去除图片底部3px间隙*/
+.w-slider{
+	width: 310px;
+	height: 265px;
+	margin: 100px auto;
+	position: relative;
+	overflow: hidden;
+}
+.slider{
+	width: 310px;
+	height: 220px;
+}
+.slider-main{
+	width: 620px;/*两个盒子的宽度310*2*/	
+	height: 220px;
+}
+.slider-main-img{
+	position: absolute;/*先让图片叠加在一起*/
+	top: 0;
+	left: 0;
+	width: 310px;
+	height: 220px;
+}
+.slider-main-img img{
+	width: 100%;
+}
+.slider-ctrl{
+	text-align: center;
+	padding-top: 5px;
+}
+.slider-ctrl-con{
+	width: 24px;
+	height: 20px;
+	display: inline-block;/*sapn是行内样式 要转成行内块元素*/
+	background: url(../images/icon.png) no-repeat -24px -782px;/*CSS精灵 首先FW打开切片划出，设置左下角x宽高值*/
+	margin: 0 5px;											   /*为24 20包裹此图片的盒子大小，查看xy轴坐标加负号*/
+	cursor: pointer;
+	text-indent: -20em;/*汉字向前20em因为不要数字序号*/	
+	overflow: hidden;/*数字隐藏*/
+}
+.current{
+	background-position: -24px -762px;
+}
+.slider-ctrl-prev,
+.slider-ctrl-next{
+	position: absolute;/*定位以最大盒子w-slider为主*/
+	top: 50%;
+	margin-top: -35px;/*根据css中切片图片高度在F12中调节*/
+	background: url(../images/icon.png) no-repeat 6px top;
+	width: 30px;
+	height: 35px;
+	opacity: 0.8;/*给透明度*/
+	cursor: pointer;
+}
+.slider-ctrl-prev{
+	left: 0;/*左尖括号左对齐*/
+}
+.slider-ctrl-next{
+	right: 0;
+	background-position: -6px -44px;/*css切片看左下角Y值加负号*/
+}

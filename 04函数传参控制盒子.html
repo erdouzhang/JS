@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04函数传参控制盒子</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			display: none;
+		}
+	</style>
+	<script>
+		function fn(obj){
+			var target = document.getElementById(obj);
+			target.style.display = "block";
+		}	
+
+	</script>
+</head>
+<body>
+	<button onclick="fn('demo1');">第一个盒子</button>
+	<button onclick="fn('demo2');">第二个盒子</button>
+	<button onclick="fn('demo3');">第三个盒子</button>
+	<button onclick="fn('demo4');">第四个盒子</button>
+	<div id="demo1">1</div>
+	<div id="demo2">2</div>
+	<div id="demo3">3</div>
+	<div id="demo4">4</div>
+</body>
+</html>

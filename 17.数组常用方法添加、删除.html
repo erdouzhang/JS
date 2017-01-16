@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>17.数组常用方法添加、删除</title>
+</head>
+<body>
+	<script>
+		var arr = [1,3,5];
+		arr.push(7);	//从后面添加
+		console.log(arr);	//返回数组[1,3,5,7]
+
+		console.log(arr.unshift(0));	//返回数组5  即数组为[0, 1, 3, 5, 7]
+
+		console.log(arr.pop());		//7  返回被删除掉的最后一个数字7
+		console.log(arr.shift());	//0  返回被删除掉的前面第一个数字0
+
+		var A =[1,2,3,4];
+		var B =["a","b","c"];		
+		console.log(A.concat(B));	//[1, 2, 3, 4, "a", "b", "c"]
+
+		var txt = ["aa","bb","cc"];		
+		console.log(txt.join("--"));
+
+		var text = "aa*bb*cc";
+		console.log(text.split("*"));
+
+	</script>	
+</body>
+</html>

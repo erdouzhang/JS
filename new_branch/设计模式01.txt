@@ -1,0 +1,55 @@
+一、函数的祖先定义方法：
+	
+   1.Function.prototype.checkEmail = function(){
+
+	  alert('函数的祖先原型函数,验证邮箱');
+	};
+	
+	在原始函数的原型上添加 checkEmail()方法 那么定义任何函数都可以访问到此方法
+	
+	
+   2.使用方法
+   
+   // 001
+   var f = function(){};
+ 
+   f.checkEmail();
+   
+   // 002
+   var c = function(){};
+  
+   c.checkEmail();
+  
+使用此方法的优缺点
+
+  污染了原生对象Function,代码污染，造成不必要的开销 可以抽象出来一个统一的方法添加方法的功能方法、  
+
+	Function.prototype.addMethod = function(name,fn){
+	   this[name] = fn;
+	};
+如果想添加方法可以这么做
+
+var method = new Function() || var method = function(){};
+
+
+method.addMethod('checkName',function(){
+     // 验证名称
+});
+
+method.addMethod('checkEmail',function(){
+     // 验证邮箱
+});
+
+method.checkEmail();
+method.checkName();
+
+	
+	
+	
+
+  
+   
+   
+	
+	
+		

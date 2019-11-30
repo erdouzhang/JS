@@ -1,4 +1,4 @@
-一、函数的祖先定义方法：
+﻿一、函数的祖先定义方法：
 	
    1.Function.prototype.checkEmail = function(){
 
@@ -42,6 +42,44 @@ method.addMethod('checkEmail',function(){
 
 method.checkEmail();
 method.checkName();
+
+
+1.1  链式添加
+
+  Function.prototype.addMethod = function(name，fn){
+     
+ 	this[name] = fn;
+ 	
+  	 return this;
+   }
+
+ 调用
+
+var methods = function(){};
+
+
+methods.addMethod（'checkName',function(){
+ 
+	// 验证姓名
+
+	return this；
+}）. addMethod('checkEmail'，function(){
+	// 验证邮箱
+                return this；
+});
+
+
+    //  测试代码
+  
+    methods.checkName().checkEmail();
+
+
+
+
+
+
+
+
 
 	
 	

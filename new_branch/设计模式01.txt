@@ -1,4 +1,8 @@
-﻿一、函数的祖先定义方法：
+﻿
+1.灵活的语言
+<!-------------------------------------------->
+
+一、函数的祖先定义方法：
 	
    1.Function.prototype.checkEmail = function(){
 
@@ -43,7 +47,7 @@ method.addMethod('checkEmail',function(){
 method.checkEmail();
 method.checkName();
 
-
+<!-------------------------------------------->
 1.1  链式添加
 
   Function.prototype.addMethod = function(name，fn){
@@ -72,6 +76,55 @@ methods.addMethod（'checkName',function(){
     //  测试代码
   
     methods.checkName().checkEmail();
+	
+	<!-------------------------------------------->
+	
+	<!----------------start-------------------------->
+	
+	
+第二种使用方法
+
+
+  Function.prototype.addMethod = function(name，fn){
+     
+ 	this.prototype[name] = fn;
+ 	
+  	 return this;
+   }
+   
+   
+    var methods = function(){};
+
+
+	methods.addMethod（'checkName',function(){
+	 
+		// 验证姓名
+
+	
+	}）. addMethod('checkEmail'，function(){
+		// 验证邮箱
+	});
+	
+
+	
+	var m = new methods();
+	
+	m.checkName();
+	m.checkEmail();
+
+   
+   <!----------------end-------------------------->
+   
+   
+   
+
+
+
+
+
+	
+	
+	
 
 
 
